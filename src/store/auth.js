@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 
 export default {
   actions: {
-    login : async function({dispatch, commit}, {email, password}) {
+    async login({dispatch, commit}, {email, password}) {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (e) {
@@ -10,7 +10,7 @@ export default {
         throw e
       }
     },
-    register: async function({dispatch, commit}, {email, password, name}) {
+    async register({dispatch, commit}, {email, password, name}) {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password)
         const uid = await dispatch('getUid')
@@ -23,13 +23,14 @@ export default {
         throw e
       }
     },
-    getUid: function() {
+    getUid() {
       const user = firebase.auth().currentUser
       return user ? user.uid : null
     }
     ,
-    logout: async function () {
+    async logout({commit}) {
       await firebase.auth().signOut()
+      commit('clearInfo')
     }
   }
 }
