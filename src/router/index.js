@@ -30,7 +30,7 @@ Vue.use(VueRouter)
     component: () => import('./../views/Categories.vue')
   },
   {
-    path: '/detail',
+    path: '/detail/:detailId',
     name: 'detail',
     meta: {layout: 'main', auth: true},
     component: () => import('./../views/Detail.vue')
