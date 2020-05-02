@@ -49,7 +49,7 @@ export default {
         typeClass: record.type === 'income' ? 'green' : 'red',
         typeText: record.type === 'income' ? 'Доход' : 'Расход'
       }
-    })
+    }).reverse()
     this.loading = false
   }
   
