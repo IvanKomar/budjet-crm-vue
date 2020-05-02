@@ -10,7 +10,7 @@ import tooltipDirective from '@/directives/tooltip.directive'
 import messagePlugin from '@/utils/message.plagin'
 import './registerServiceWorker'
 import 'materialize-css/dist/js/materialize.min'
-
+import Paginate from 'vuejs-paginate'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
@@ -22,6 +22,7 @@ Vue.use(Vuelidate)
 Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
 Vue.component('Loader', Loader)
+Vue.component('Paginate', Paginate)
 Vue.directive('tooltip', tooltipDirective)
 
 
