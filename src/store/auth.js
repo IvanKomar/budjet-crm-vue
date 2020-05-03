@@ -15,7 +15,7 @@ export default {
         await firebase.auth().createUserWithEmailAndPassword(email, password)
         const uid = await dispatch('getUid')
         await firebase.database().ref(`/users/${uid}/info`).set({
-          bill: 1000,
+          bill: 10000,
           name
         })
       } catch (e) {
@@ -26,8 +26,7 @@ export default {
     getUid() {
       const user = firebase.auth().currentUser
       return user ? user.uid : null
-    }
-    ,
+    },
     async logout({commit}) {
       await firebase.auth().signOut()
       commit('clearInfo')
