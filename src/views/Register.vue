@@ -99,6 +99,11 @@
 import { email, required, minLength } from "vuelidate/lib/validators";
 
 export default {
+  metaInfo() {
+    return {
+      title: 'SignUp page'
+    }
+    },
   name: "regiter",
   data: () => ({
     email: "",

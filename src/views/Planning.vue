@@ -37,6 +37,11 @@ import currencyFilter from '@/filters/currency.filter'
 import localizeFilter from '@/filters/localize.filter'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('Planning')
+    }
+  },
   name: 'planning',
   data: () => ({
     loading: true,

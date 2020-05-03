@@ -35,6 +35,11 @@
 
 <script>
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('Menu_History')
+    }
+  },
   name: 'datail',
   data: () => ({
     record: null,

@@ -44,6 +44,11 @@ import currencyFilter from '@/filters/currency.filter'
 import localizeFilter from '@/filters/localize.filter'
 import { Pie } from 'vue-chartjs'
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('RecordsHistory')
+    }
+  },
   name: 'history',
   extends: Pie,
   mixins: [paginationMixin],

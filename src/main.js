@@ -9,17 +9,21 @@ import currencyFilter from '@/filters/currency.filter'
 import localizeFilter from '@/filters/localize.filter'
 import tooltipDirective from '@/directives/tooltip.directive'
 import messagePlugin from '@/utils/message.plagin'
+import titlePlugin from '@/utils/title.plugin'
 import './registerServiceWorker'
 import 'materialize-css/dist/js/materialize.min'
 import Paginate from 'vuejs-paginate'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
+import VueMeta from 'vue-meta'
 
 Vue.config.productionTip = false
 
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
+Vue.use(VueMeta)
+Vue.use(titlePlugin)
 Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
 Vue.filter('localize', localizeFilter)

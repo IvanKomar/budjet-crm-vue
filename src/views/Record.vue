@@ -92,6 +92,11 @@ import {mapGetters} from 'vuex'
 import localizeFilter from '@/filters/localize.filter'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('NewRecord')
+    }
+  },
   name: 'record',
   data: () => ({
     loading: true,
