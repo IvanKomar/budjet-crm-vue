@@ -3,9 +3,9 @@
     <Loader v-if="loading" />
     <div v-else-if="record">
       <div class="breadcrumb-wrap">
-        <router-link to="/history" class="breadcrumb">История</router-link>
+        <router-link to="/history" class="breadcrumb">{{'Menu_History' | localize}}</router-link>
         <a @click.prevent class="breadcrumb">
-          {{record.type === 'income' ? 'Доход' : 'Расход'}}
+          {{record.type === 'income' ? 'Income' : 'Outcome' | localize }}
         </a>
       </div>
       <div class="row">
@@ -18,9 +18,9 @@
             }"
           >
             <div class="card-content white-text">
-              <p>Описание: <strong>{{record.description}}</strong></p>
-              <p>Сумма: <strong>{{record.amount | currency}}</strong></p>
-              <p>Категория: <strong>{{record.categoryName}}</strong> </p>
+              <p>{{'description' | localize}}: <strong>{{record.description}}</strong></p>
+              <p>{{'Amount' | localize}}: <strong>{{record.amount | currency}}</strong></p>
+              <p>{{'Category' | localize}}: <strong>{{record.categoryName}}</strong> </p>
 
               <small>{{record.data | date('datetime')}}</small>
             </div>
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <p class="center" v-else>Запись с <strong> id: {{this.$route.params.detailId}}</strong> не найдена!</p>
+    <p class="center" v-else> {{"Message_recordPart1"| localize}} <strong> id: {{this.$route.params.detailId}}</strong> {{"Message_recordPart2" | localize}}</p>
   </div>
 </template>
 

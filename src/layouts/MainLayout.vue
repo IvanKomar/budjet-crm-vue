@@ -8,6 +8,7 @@
         @click="isOpen = !isOpen"
       />
       <Sidebar
+        :key="locale"
         v-model="isOpen"
       />
 
@@ -18,7 +19,7 @@
       </main>
 
       <div class="fixed-action-btn">
-        <router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'Создать новую запись'">
+        <router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'NewRecord'">
           <i class="large material-icons">add</i>
         </router-link>
       </div>
@@ -48,12 +49,15 @@ export default {
   computed: {
     error() {
       return this.$store.getters.error
+    },
+    locale() {
+      return this.$store.getters.info.locale
     }
   },
   watch: {
     error(fbError) {
       this.$error(messages[fbError.code] || 'Что-то пошло не так')
-    }
+    },
   }
 }
 </script>
